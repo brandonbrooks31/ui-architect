@@ -1,0 +1,62 @@
+.sidebar {
+    width: 260px;
+    background-color: var(--color-surface);
+    border-right: 1px solid var(--color-border);
+    display: flex;
+    flex-direction: column;
+    padding: var(--spacing-md);
+    z-index: 5;
+}
+
+.section {
+    margin-bottom: var(--spacing-lg);
+}
+
+.sectionTitle {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--color-text-secondary);
+    text-transform: uppercase;
+    margin: 0 0 var(--spacing-md) 0;
+    padding-left: var(--spacing-xs);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-sm);
+}
+
+.draggableItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-md);
+    cursor: grab;
+    transition: all 0.2s ease;
+}
+
+.draggableItem:hover {
+    box-shadow: var(--shadow-1);
+    border-color: transparent;
+    transform: translateY(-2px);
+}
+
+.draggableItem:active {
+    cursor: grabbing;
+}
+
+.iconWrapper {
+    color: var(--color-text-secondary);
+    margin-bottom: var(--spacing-sm);
+}
+
+.label {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--color-text-primary);
+}

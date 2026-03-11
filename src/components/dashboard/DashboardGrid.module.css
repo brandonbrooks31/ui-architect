@@ -1,0 +1,16 @@
+.gridContainer {
+    width: 100%;
+    min-height: 100%;
+    padding: var(--spacing-md);
+}
+
+.placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    color: var(--color-text-secondary);
+    background-color: #f8f9fa;
+    border: 1px dashed var(--color-border);
+    border-radius: var(--radius-sm);
+}
