@@ -4,6 +4,7 @@ const { Responsive, WidthProvider } = RGL as any;
 import 'react-grid-layout/css/styles.css';
 import 'react-resizable/css/styles.css';
 import { WidgetContainer } from './WidgetContainer';
+import { OpenClawWidget } from './OpenClawWidget';
 import styles from './DashboardGrid.module.css';
 
 const ResponsiveGridLayout = WidthProvider(Responsive);
@@ -20,7 +21,7 @@ interface Widget {
 // Initial Sample Data
 const initialWidgets: Widget[] = [
     { i: '1', x: 0, y: 0, w: 4, h: 4, type: 'chart' },
-    { i: '2', x: 4, y: 0, w: 4, h: 4, type: 'text' },
+    { i: '2', x: 4, y: 0, w: 4, h: 4, type: 'openclaw' },
     { i: '3', x: 8, y: 0, w: 4, h: 4, type: 'image' }
 ];
 
@@ -80,7 +81,7 @@ export const DashboardGrid: React.FC = () => {
                     <WidgetContainer
                         key={widget.i}
                         id={widget.i}
-                        title={`${widget.type.charAt(0).toUpperCase() + widget.type.slice(1)} Widget`}
+                        title={widget.type === 'openclaw' ? 'OpenClaw Agent' : `${widget.type.charAt(0).toUpperCase() + widget.type.slice(1)} Widget`}
                         onRemove={() => onRemoveItem(widget.i)}
                         data-grid={{
                             x: widget.x,
@@ -92,6 +93,7 @@ export const DashboardGrid: React.FC = () => {
                         {widget.type === 'chart' && <div className={styles.placeholder}>Chart Widget Content</div>}
                         {widget.type === 'text' && <div className={styles.placeholder}>Text Widget Content</div>}
                         {widget.type === 'image' && <div className={styles.placeholder}>Image Widget Content</div>}
+                        {widget.type === 'openclaw' && <OpenClawWidget />}
                         {widget.type === 'note' && <div className={styles.placeholder}>Sticky Note Content</div>}
                     </WidgetContainer>
                 ))}
